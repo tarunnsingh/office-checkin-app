@@ -5,119 +5,133 @@
     <title>Innovacer - Current Meetings</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/particlestyle.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        particlesJS.load('particles-js', 'js/particles.json',
+            function() {
+                console.log('particles.json loaded...')
+            })
+    </script>
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images2/icons/favicon.ico" />
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor2/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts2/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor2/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor2/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor2/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css2/util.css">
-    <link rel="stylesheet" type="text/css" href="css2/main.css">
+    <link rel="stylesheet" type="text/css" href="css/util2.css">
+    <link rel="stylesheet" type="text/css" href="css/main2.css">
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!--===============================================================================================-->
 </head>
 
 <body>
+    <div id="particles-js"></div>
 
-    <div class="limiter">
-        <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
-            <div class="wrap-table100">
-                <div class="table100 ver1">
-                    <div class="table100-firstcol">
+    <div class="container-login100">
+        <div class="wrap-table100">
+            <div class="table100 ver1">
+                <div class="table100-firstcol">
+                    <table>
+                        <thead>
+                            <tr class="row100 head">
+                                <th class="cell100 column1">Host Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (i = 0; i < data.length; ++i ) { %>
+                                <tr class="row100 body">
+                                    <td class="cell100 column1">
+                                        <%= data[i].hname %>
+                                    </td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="wrap-table100-nextcols js-pscroll">
+                    <div class="table100-nextcols">
                         <table>
                             <thead>
                                 <tr class="row100 head">
-                                    <th class="cell100 column1">Host Name</th>
+                                    <th class="cell100 column2">Host Email</th>
+                                    <th class="cell100 column3">Visitor Name</th>
+                                    <th class="cell100 column4">Checked In</th>
+                                    <th class="cell100 column5">Host Address</th>
+                                    <th class="cell100 column6">Session Activity</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <% for (i = 0; i < data.length; ++i ) { %>
                                     <tr class="row100 body">
-                                        <td class="cell100 column1">
-                                            <%= data[i].hname %>
+                                        <td class="cell100 column2">
+                                            <%= data[i].hemail %>
+                                        </td>
+
+                                        <td class="cell100 column3">
+                                            <%= data[i].vname %>
+                                        </td>
+                                        <td class="cell100 column4">
+                                            <%= data[i].timestamp %>
+                                        </td>
+                                        <td class="cell100 column5">
+                                            <%= data[i].haddress %>
+                                        </td>
+                                        <td class="cell100 column6">
+                                            <button onclick="location.href = '/checkoutresult/<%= data[i].id %>'" class="login100-form-btn2">Checkout</button>
                                         </td>
                                     </tr>
                                     <% } %>
                             </tbody>
                         </table>
-                    </div>
 
-                    <div class="wrap-table100-nextcols js-pscroll">
-                        <div class="table100-nextcols">
-                            <table>
-                                <thead>
-                                    <tr class="row100 head">
-                                        <th class="cell100 column2">Host Email</th>
-                                        <th class="cell100 column3">Visitor Name</th>
-                                        <th class="cell100 column4">Checked In</th>
-                                        <th class="cell100 column5">Session Activity</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <% for (i = 0; i < data.length; ++i ) { %>
-                                        <tr class="row100 body">
-                                            <td class="cell100 column2">
-                                                <%= data[i].hemail %>
-                                            </td>
-
-                                            <td class="cell100 column3">
-                                                <%= data[i].vname %>
-                                            </td>
-                                            <td class="cell100 column4">
-                                                <%= data[i].timestamp %>
-                                            </td>
-                                            <td class="cell100 column5">
-                                                <button onclick="location.href = '/checkoutresult/<%= data[i].id %>'" class="login100-form-btn2">Checkout</button>
-                                            </td>
-                                        </tr>
-                                        <% } %>
-                                </tbody>
-                            </table>
-
-                        </div>
                     </div>
                 </div>
+            </div>
 
 
-                <br>
-                <br>
+            <br>
+            <br>
 
-                <div class="container-login100-form-btn">
-                    <button onclick="location.href = '/checkin'" class="login100-form-btn">
+            <div class="container-login100-form-btn">
+                <button onclick="location.href = '/checkin'" class="login100-form-btn">
                     CheckIn
                 </button>
-                    <br>
-                    <button onclick="location.href = '/pastsession'" class="login100-form-btn">
-                    Past Meetings
-                </button>
-                </div>
                 <div class="flex-c p-b-112">
 
                     <a href="/" class="login100-social-item">
                         <img src="images/icons/home.jpg" alt="Home">
                     </a>
                 </div>
+                <br>
+                <button onclick="location.href = '/pastsession'" class="login100-form-btn">
+                    Past Meetings
+                </button>
             </div>
+
         </div>
 
 
+
         <!--===============================================================================================-->
-        <script src=" vendor2/jquery/jquery-3.2.1.min.js "></script>
+        <script src=" vendor/jquery/jquery-3.2.1.min.js "></script>
         <!--===============================================================================================-->
-        <script src="vendor2/bootstrap/js/popper.js "></script>
-        <script src="vendor2/bootstrap/js/bootstrap.min.js "></script>
+        <script src="vendor/bootstrap/js/popper.js "></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js "></script>
         <!--===============================================================================================-->
-        <script src="vendor2/select2/select2.min.js "></script>
+        <script src="vendor/select2/select2.min.js "></script>
         <!--===============================================================================================-->
-        <script src="vendor2/perfect-scrollbar/perfect-scrollbar.min.js "></script>
+        <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js "></script>
         <script>
             $('.js-pscroll').each(function() {
                 var ps = new PerfectScrollbar(this);
@@ -137,7 +151,7 @@
             });
         </script>
         <!--===============================================================================================-->
-        <script src="js2/main.js "></script>
+        <script src="js/main2.js "></script>
 
 </body>
 

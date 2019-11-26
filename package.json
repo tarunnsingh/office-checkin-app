@@ -4,6 +4,7 @@
     "description": "Innovacer Summer Intern Project",
     "main": "index.js",
     "scripts": {
+        "start": "node server.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "engine": {
@@ -17,8 +18,14 @@
         "express": "^4.17.1",
         "firebase-admin": "^8.8.0",
         "firebase-functions": "^3.3.0",
+        "https": "^1.0.0",
         "moment": "^2.24.0",
         "morgan": "^1.9.1",
-        "nodemailer": "^6.3.1"
+        "nexmo": "^2.5.1",
+        "nodemailer": "^6.3.1",
+        "particles.js": "^2.0.0",
+        "python-shell": "^1.0.8",
+        "twilio": "^3.37.1",
+        "way2sms": "^1.0.2"
     }
 }
