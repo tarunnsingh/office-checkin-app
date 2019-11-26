@@ -5,6 +5,18 @@
     <title>InnovAcer Visitor</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>InnovAcer FrontDesk</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/particlestyle.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        particlesJS.load('particles-js', 'js/particles.json',
+            function() {
+                console.log('particles.json loaded...')
+            })
+    </script>
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
     <!--===============================================================================================-->
@@ -30,17 +42,18 @@
 </head>
 
 <body>
-
-
-    <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+    <div id="particles-js"></div>
+    <div class="container-login100">
         <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
             <form class="login100-form validate-form" method="POST">
                 <span class="login100-form-title p-b-37">
 					Visitor Checkin
+                    <img src="images/logo2.jpg" height="20%" width="20%" />
                 </span>
+
                 <div class="text-center p-b-37">
                     <span class="txt2">
-                            Visitor Details
+                            <b>Visitor Details</b>
                     </span>
                 </div>
 
@@ -62,7 +75,7 @@
                 <hr>
                 <div class="text-center p-b-37">
                     <span class="txt2">
-                                Host Details
+                                <b>Host Details</b>
                         </span>
                 </div>
                 <div class="wrap-input100 validate-input m-b-30" data-validate="Enter Host Name">
@@ -80,6 +93,10 @@
                     <span class="focus-input100"></span>
                 </div>
 
+                <div class="wrap-input100 validate-input m-b-45" data-validate="Enter Host Address">
+                    <input class="input100" type="text" name="haddress" placeholder="Host Address">
+                    <span class="focus-input100"></span>
+                </div>
 
                 <div class="container-login100-form-btn">
                     <button type="submit" class="login100-form-btn">
@@ -92,18 +109,10 @@
                     Already checked in? <a href="/checkout">Checkout</a>. 
                 </span>
                 </div>
-
-
-
             </form>
-
-
         </div>
     </div>
 
-
-
-    <div id="dropDownSelect1"></div>
 
     <!--===============================================================================================-->
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>

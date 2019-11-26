@@ -3,6 +3,7 @@ const logger = require('morgan')
 const bodyParser = require('body-parser')
 const nodemailer = require('nodemailer')
 const moment = require('moment')
+const { PythonShell } = require("python-shell");
 const admin = require('firebase-admin')
 var serviceAccount = require("./creds.json");
 
@@ -97,6 +98,7 @@ app.get('/checkoutresult/:id', async(req, res) => {
     const hname = temp.hname
     const hemail = temp.hemail
     const hmobile = temp.hmobile
+    const haddress = temp.haddress
     const intime = temp.timestamp
     const outtime = moment(new Date())
     const duration = Math.round(moment.duration(outtime.diff(moment.unix(intime))).asMinutes())
@@ -108,7 +110,7 @@ app.get('/checkoutresult/:id', async(req, res) => {
                         <p>Hope you had a pleasant meeting with ${hname}.<p>
                         <p>Here are the details of your visit:</p>
                         <p>Visitor Name: ${vname}<br>Visitor Email: ${vemail}<br>Visitor Contact: ${vmobile}\n</p>
-                        <p>Host Name: ${hname}<br>Host Email: ${hemail}<br>Host Contact: ${hmobile}</p>
+                        <p>Host Name: ${hname}<br>Host Email: ${hemail}<br>Host Contact: ${hmobile}<br>Host Address: ${haddress}</p>
                         <p>Meeting Duration: ${duration} minute(s).<br>Check In Time: ${moment.unix(intime).format("YYYY-MMMM-DD | HH:mm")}<br>Check Out Time: ${outtime.format("YYYY-MMMM-DD | HH:mm")}</p>
                         <img src="cid:alsoveryuniqueimg@nodemailer.com"/><br>
                         <h3>Thank You for your visit!</h3><br><hr><br>
@@ -126,6 +128,20 @@ app.get('/checkoutresult/:id', async(req, res) => {
             console.log('Email sent: ' + info.response);
         }
     });
+    // client.messages.create({
+    //         to: vmobile,
+    //         from: '+15735356604',
+    //         body: `Hello! ${vname.split(' ')[0]},\n` +
+    //             `Hope you had a pleasant meeting with ${hname}.` +
+    //             `Here are the details of your visit:` +
+    //             `Visitor Name: ${vname}\nVisitor Email: ${vemail}\nVisitor Contact: ${vmobile}\n` +
+    //             `Host Name: ${hname}\nHost Email: ${hemail}\nHost Contact: ${hmobile}\n` +
+    //             `Meeting Duration: ${duration} minute(s).\nCheck In Time: ${moment.unix(intime).format("YYYY-MMMM-DD | HH:mm")}\nCheck Out Time: ${outtime.format("YYYY-MMMM-DD | HH:mm")}\n` +
+    //             `Thank You for your visit!\n` +
+    //             `Regards,\nFront Desk,\nInnovacer Office`
+    //     })
+    //     .then((message) => { console.log(message.id) })
+
     dref.add({
         vname: vname,
         vemail: vemail,
@@ -134,6 +150,7 @@ app.get('/checkoutresult/:id', async(req, res) => {
         hemail: hemail,
         hmobile: hmobile,
         intime: intime,
+        haddress: haddress,
         outtime: outtime.unix(),
         duration: duration
     }).then(ref => {
@@ -155,6 +172,7 @@ app.post('/checkin', (req, res) => {
     const hemail = req.body.hemail
     const hmobile = req.body.hmobile
     const timestamp = moment().unix()
+    const haddress = req.body.haddress
     const timestampformatted = moment().format("YYYY-MMMM-DD | HH:mm")
     let docRef = db.collection('visitors').add({
         vname: vname,
@@ -163,6 +181,7 @@ app.post('/checkin', (req, res) => {
         hname: hname,
         hemail: hemail,
         hmobile: hmobile,
+        haddress: haddress,
         timestamp: timestamp
     }).then(ref => {
         console.log('Added document with ID: ', ref.id);
@@ -192,8 +211,27 @@ app.post('/checkin', (req, res) => {
             console.log('Email sent: ' + info.response);
         }
     });
+    const mno = hmobile
+    const msg = `Hello! ${hname.split(' ')[0]},\n` +
+        `${hname} has checked in to visit you.` +
+        `Here are the details of the visitor:` +
+        `Visitor Name: ${vname}\nVisitor Email: ${vemail}\nVisitor Contact: ${vmobile}\n` +
 
-
+        `Check In Time: ${timestampformatted}\n` +
+        `Hope you have a pleasant meeting!\n` +
+        `Regards,\nFront Desk,\nInnovacer Office`
+    const options = {
+        mode: 'text',
+        encoding: 'utf8',
+        pythonOptions: ['-u'],
+        scriptPath: './',
+        args: [mno, msg],
+        pythonPath: 'C:/Users/Acer/AppData/Local/Programs/Python/Python36/python.exe',
+    };
+    // const test = new PythonShell('./sms.py', options);
+    // test.on('message', (message) => {
+    //     console.log(message)
+    // });
     res.render('checkinresult.ejs', {
         vname: vname,
         vemail: vemail,

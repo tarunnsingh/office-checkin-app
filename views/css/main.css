@@ -1,6 +1,7 @@
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
 @font-face {
     font-family: SourceSansPro-Regular;
     src: url('../fonts/source-sans-pro/SourceSansPro-Regular.ttf');
@@ -12,8 +13,8 @@
 }
 
 @font-face {
-    font-family: SourceSansPro-SemiBold;
-    src: url('../fonts/source-sans-pro/SourceSansPro-SemiBold.ttf');
+    font-family: JosefinSans-SemiBold;
+    src: url('../fonts/JosefinSans/JosefinSans-SemiBold.ttf');
 }
 
 @font-face {
@@ -169,6 +170,7 @@ iframe {
     font-size: 16px;
     line-height: 1.4;
     color: #4b2354;
+    text-align: center;
 }
 
 .hov1:hover {
@@ -182,12 +184,12 @@ iframe {
 
 .container-login100 {
     width: 100%;
-    min-height: 100vh;
+    min-height: 0;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
-    display: flex;
+    display: absolute;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -195,11 +197,14 @@ iframe {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 1;
 }
 
-.container-login100::before {
+
+/* .container-login100::before {
     content: "";
     display: block;
     position: absolute;
@@ -214,7 +219,7 @@ iframe {
     background: -moz-linear-gradient(left, rgba(0, 168, 255, 0.5), rgba(185, 0, 255, 0.5));
     background: linear-gradient(left, rgba(0, 168, 255, 0.5), rgba(185, 0, 255, 0.5));
     pointer-events: none;
-}
+} */
 
 .wrap-login100 {
     width: 390px;
@@ -328,7 +333,7 @@ iframe {
     height: 50px;
     background-color: #bd59d4;
     border-radius: 25px;
-    font-family: SourceSansPro-SemiBold;
+    font-family: JosefinSans-SemiBold;
     font-size: 14px;
     color: #fff;
     line-height: 1.2;
@@ -357,10 +362,10 @@ iframe {
     height: 20px;
     background-color: #bd59d4;
     border-radius: 25px;
-    font-family: SourceSansPro-SemiBold;
-    font-size: 14px;
+    font-family: JosefinSans-SemiBold;
+    font-size: 10px;
     color: #fff;
-    line-height: 1.2;
+    line-height: 2.3;
     text-transform: uppercase;
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
@@ -398,6 +403,50 @@ iframe {
     -webkit-box-shadow: 0 10px 30px 0px rgba(255, 255, 255, 0.8);
     -o-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
     -ms-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
+}
+
+.head:only-child {
+    background-color: #b57cff80;
+    box-shadow: 0 10px 30px 0px rgba(92, 123, 131, 0.9);
+    -moz-box-shadow: 0 10px 30px 0px rgba(166, 95, 182, 0.8);
+    -webkit-box-shadow: 0 10px 30px 0px rgba(255, 255, 255, 0.8);
+    -o-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
+    -ms-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
+}
+
+.cell100:not(:last-child) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.body:active {
+    content: '';
+    left: -2px;
+    top: -2px;
+    color: white;
+    background: linear-gradient(45deg, #ec7ec7ab, #00c3ff71, #ec329f79, #f3bf3185);
+    background-size: 400%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -1;
+    animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.head:active:after {
+    filter: blur(50px);
 }
 
 

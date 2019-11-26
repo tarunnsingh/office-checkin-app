@@ -6,14 +6,23 @@
     <title>InnovAcer Checkout</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/particlestyle.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        particlesJS.load('particles-js', 'js/particles.json',
+            function() {
+                console.log('particles.json loaded...')
+            })
+    </script>
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="/images/icons/favicon.ico" />
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/fonts2/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/fonts2/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="/fonts/iconic/css/material-design-iconic-font.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
     <!--===============================================================================================-->
@@ -32,8 +41,8 @@
 
 <body>
 
-
-    <div class="container-login100" style="background-image: url('/images/bg-01.jpg');">
+    <div id="particles-js"></div>
+    <div class="container-login100">
         <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
             <span class="login100-form-title p-b-37">
                     Thank you <%= vname.split(' ')[0] %> for visiting us!
