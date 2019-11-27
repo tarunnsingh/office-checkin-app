@@ -15,10 +15,10 @@ As mentioned in the problem statement, this application has the following featur
 + _**The Mail and SMS**_  
     These gifs provide you a look at the email and sms received by the host.
   ![Checkedin](https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/form.gif)
-  <div style="float=left">
+  <div style="float:left">
   <img src="https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/Screenshot_2019-11-27-01-55-28-934_com.google.android.gm-01.jpeg" height="400px" />
   </div>
-  <div style="float=left">
+  <div style="float:left">
   <img src="https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/Screenshot_2019-11-28-00-04-16-056_com.android.mms-01.jpeg" height="400px" />
   </div>
 + _**The Checkout Page**_  
