@@ -2,7 +2,7 @@
 ## Innovaccer SDE-Intern Assignment
 This project is a NodeJS webapp, serving a host-vistor checkin system which could be implemented at any office desk.
 A running version can be seen [here](ovacer-1ec3d.appspot.com).
-**Steps for local deployment are mentioned at the [end](#) of this file.**
+**Steps for local deployment are mentioned at the [end]() of this file.**
 ### Features
 As mentioned in the problem statement, this application has the following features:  
 + _**The Home Page**_  
@@ -25,5 +25,14 @@ As mentioned in the problem statement, this application has the following featur
 + _**Past Meetings**_  
     One can also view the past sessions/meetings.
     ![Checkedin](https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/pastmeets.gif)  
+<hr />
+### Steps for Local deployment  
+Ensure you have NodeJS and npm installed.   
+- Clone this repository. `git clone https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout.git`.
+- Enter the repo directory. `cd Office-FrontDesk-CheckIn-Checkout`
+- Open up the terminal/command-line and run `npm install`. This will install the required dependencies listed in package.json.
+- Once all dependencies are installed type in `npm start` to fire up the server.
+- You will see on the terminal _App running on port 8080_.
+- Go to the browser and type in `127.0.0.1:8080`.
+- The homepage opens up and we are done!
 
-### Steps for Local deployment
