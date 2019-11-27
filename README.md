@@ -15,11 +15,8 @@ As mentioned in the problem statement, this application has the following featur
 + _**The Mail and SMS**_  
     These gifs provide you a look at the email and sms received by the host.
   ![Checkedin](https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/form.gif)
-  <div style="float:left">
-  <img src="https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/Screenshot_2019-11-27-01-55-28-934_com.google.android.gm-01.jpeg" height="400px" />
-  </div>
-  <div style="float:left">
-  <img src="https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/Screenshot_2019-11-28-00-04-16-056_com.android.mms-01.jpeg" height="400px" />
+  <img style="float:left;" src="https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/Screenshot_2019-11-27-01-55-28-934_com.google.android.gm-01.jpeg" height="400px" />
+  <img style="float:left;" src="https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/Screenshot_2019-11-28-00-04-16-056_com.android.mms-01.jpeg" height="400px" />
   </div>
 + _**The Checkout Page**_  
    Once the user taps on the checkout button on Home Page, they are redirected to the **Current Meetings** page. On tapping checkout on their session the visitor checks out and details of the meeting are sent to the visitor.
