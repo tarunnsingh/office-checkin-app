@@ -25,14 +25,19 @@ As mentioned in the problem statement, this application has the following featur
 + _**Past Meetings**_  
     One can also view the past sessions/meetings.
     ![Checkedin](https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/pastmeets.gif)  
-<hr />
+### Working Explained
+The project uses NodeJS as the backend server. The **Cloud Firestore** is initialised. As usual the routes handle all the **GET** and **POST** requests. The POST _/checkinresults_ route handles post request of the form. Here we have parsed the request and got the various variable like the name, email etc. The **Cloud Firestore** then gets requests to add data to _visitors_ collection. After this we send email and sms to the host. On checkout we pull the data from the firestore sorted in order by the timestamp which were added when we created the entries. Next, with dynamic routing we pass the doc ID to the _checkinresults_ page where that entry is deleted from the firestore. At the same time we also update another entry in a collection named _visited_ on DB. This collection populated the Past Sessions page. Finally we send an email to the visitor with all the details.   
+
 ### Steps for Local deployment  
 Ensure you have NodeJS and npm installed.   
-- Clone this repository. `git clone https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout.git`.
++ Clone this repository. `git clone https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout.git`.
 - Enter the repo directory. `cd Office-FrontDesk-CheckIn-Checkout`
 - Open up the terminal/command-line and run `npm install`. This will install the required dependencies listed in package.json.
 - Once all dependencies are installed type in `npm start` to fire up the server.
 - You will see on the terminal _App running on port 8080_.
 - Go to the browser and type in `127.0.0.1:8080`.
 - The homepage opens up and we are done!
+
+### Credits
+[Tarun Singh](https://www.linkedin.com/in/thetseffect/) 
 
