@@ -15,16 +15,19 @@ As mentioned in the problem statement, this application has the following featur
 + _**The Mail and SMS**_  
     These gifs provide you a look at the email and sms received by the host.
   ![Checkedin](https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/form.gif)
-  <img style="float:left;" src="https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/Screenshot_2019-11-27-01-55-28-934_com.google.android.gm-01.jpeg" height="400px" border = "2"/>
-  <img style="float:left;" src="https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/Screenshot_2019-11-28-00-04-16-056_com.android.mms-01.jpeg" height="400px" border = "2" />
-  </div>
+  
 + _**The Checkout Page**_  
    Once the user taps on the checkout button on Home Page, they are redirected to the **Current Meetings** page. On tapping checkout on their session the visitor checks out and details of the meeting are sent to the visitor.
   ![Checkedin](https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/checkout.gif)
-  <img src="https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/Screenshot_2019-11-27-23-36-26-848_com.google.android.gm-01.jpeg" height = "400px" border = "2"/>
+  
 + _**Past Meetings**_  
     One can also view the past sessions/meetings.
-    ![Checkedin](https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/pastmeets.gif)  
+    ![Checkedin](https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/pastmeets.gif) 
++ _**Emails and SMS**_
+    <img style="float:left;" src="https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/Screenshot_2019-11-27-01-55-28-934_com.google.android.gm-01.jpeg" height="400px" border = "2"/>
+  <img style="float:left;" src="https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/Screenshot_2019-11-28-00-04-16-056_com.android.mms-01.jpeg" height="400px" border = "2" />
+  </div>
+  <img style="float:left;" src="https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/Screenshot_2019-11-27-23-36-26-848_com.google.android.gm-01.jpeg" height = "400px" border = "5"/>
 ### Working Explained
 The project uses NodeJS as the backend server. The **Cloud Firestore** is initialised. As usual the routes handle all the **GET** and **POST** requests. The POST _/checkinresults_ route handles post request of the form. Here we have parsed the request and got the various variable like the name, email etc. The **Cloud Firestore** then gets requests to add data to _visitors_ collection. After this we send email and sms to the host. On checkout we pull the data from the firestore sorted in order by the timestamp which were added when we created the entries. Next, with dynamic routing we pass the doc ID to the _checkinresults_ page where that entry is deleted from the firestore. At the same time we also update another entry in a collection named _visited_ on DB. This collection populated the Past Sessions page. Finally we send an email to the visitor with all the details.   
 
