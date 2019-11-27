@@ -23,7 +23,7 @@ As mentioned in the problem statement, this application has the following featur
 + _**Past Meetings**_  
     One can also view the past sessions/meetings.
     ![Checkedin](https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/pastmeets.gif) 
-+ _**Emails and SMS**_
++ _**Emails and SMS**_  
     <img style="float:left;" src="https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/Screenshot_2019-11-27-01-55-28-934_com.google.android.gm-01.jpeg" height="400px" border = "2"/>
   <img style="float:left;" src="https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout/blob/master/GIFs/Screenshot_2019-11-28-00-04-16-056_com.android.mms-01.jpeg" height="400px" border = "2" />
   </div>
