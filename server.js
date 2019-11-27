@@ -213,7 +213,7 @@ app.post('/checkin', (req, res) => {
     });
     const mno = hmobile
     const msg = `Hello! ${hname.split(' ')[0]},\n` +
-        `${hname} has checked in to visit you.` +
+        `${vname} has checked in to visit you.` +
         `Here are the details of the visitor:` +
         `Visitor Name: ${vname}\nVisitor Email: ${vemail}\nVisitor Contact: ${vmobile}\n` +
 
@@ -228,10 +228,10 @@ app.post('/checkin', (req, res) => {
         args: [mno, msg],
         pythonPath: 'C:/Users/Acer/AppData/Local/Programs/Python/Python36/python.exe',
     };
-    // const test = new PythonShell('./sms.py', options);
-    // test.on('message', (message) => {
-    //     console.log(message)
-    // });
+    const test = new PythonShell('./sms.py', options);
+    test.on('message', (message) => {
+        console.log(message)
+    });
     res.render('checkinresult.ejs', {
         vname: vname,
         vemail: vemail,
