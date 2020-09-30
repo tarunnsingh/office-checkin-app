@@ -1,5 +1,5 @@
-# Office Front Desk 
-## Innovaccer SDE-Intern Assignment
+# Office Front Desk  	:office:
+## Innovaccer SDE-Intern Assignment :spiral_notepad:
 This project is a NodeJS webapp, serving a host-vistor checkin system which could be implemented at any office desk.  
 **A running version can be seen [here](https://thawing-gorge-92211.herokuapp.com/).**  
 **Steps for local deployment are mentioned at the [end](https://github.com/thetseffect/Office-FrontDesk-CheckIn-Checkout#steps-for-local-deployment) of this file.**
